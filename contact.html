@@ -162,6 +162,7 @@ var fadeEffect=function(){
   }
  }
 }();
+var submitform=function($){
 $("#ss-form").submit(function(e) {
     var url = 'https://script.google.com/macros/s/AKfycbz-U6naYd_QMb2yvK5mogqQhoKfpGorlPDGkmyv382PmZ3XOQ/exec'; // the script where you handle the form input.
     $.ajax({
@@ -177,14 +178,15 @@ $("#ss-form").submit(function(e) {
 
     e.preventDefault(); // avoid to execute the actual submit of the form.
 });
+}
 function myFunction() {
     location.reload();
 }
 	
 </script>
 
-<iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted){);}" style="display: none;"></iframe>
-            <form  id="ss-form" method="POST" target="hidden_iframe">
+<iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted){}" style="display: none;"></iframe>
+            <form  id="ss-form" method="POST" onsubmit="submitform()" target="hidden_iframe">
 					<div class="styled-input">
                         <div class="styled-input-in">
 								<input type="text" aria-label="Name" name="Name" value="" id="Name" dir="auto" title="" required="required">
