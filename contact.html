@@ -186,7 +186,7 @@ function myFunction() {
 </script>
 
 <iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted){);}" style="display: none;"></iframe>
-            <form  id="ss-form" method="POST" target="hidden_iframe">
+            <form  id="ss-form" method="POST" target="hidden_iframe" onsubmit="return submitform()">
 					<div class="styled-input">
                         <div class="styled-input-in">
 								<input type="text" aria-label="Name" name="Name" value="" id="Name" dir="auto" title="" required="required">
@@ -208,7 +208,7 @@ function myFunction() {
                                 <span class="span1"></span><span class="span2"></span>
 						</div>
 					</div>
-					<button type="submit" name="submit" class="btn btn-default" onsubmit="submitform()">Send</button>
+					<button type="submit" name="submit" class="btn btn-default" >Send</button>
 					</div>
 			</form>
             <div id="fade">
