@@ -162,6 +162,21 @@ var fadeEffect=function(){
   }
  }
 }();
+$("#ss-form").submit(function(e) {
+    var url = 'https://script.google.com/macros/s/AKfycbz-U6naYd_QMb2yvK5mogqQhoKfpGorlPDGkmyv382PmZ3XOQ/exec'; // the script where you handle the form input.
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#ss-form").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               fadeEffect.init('fade', 1);
+		   document.getElementById('fade').style.display('block'); // show response from the php script.
+           }
+         });
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+});
 function myFunction() {
     location.reload();
 }
@@ -169,7 +184,7 @@ function myFunction() {
 </script>
 
 <iframe id="hidden_iframe" name="hidden_iframe" onload="if(submitted){);}" style="display: none;"></iframe>
-            <form action="https://script.google.com/macros/s/AKfycbz-U6naYd_QMb2yvK5mogqQhoKfpGorlPDGkmyv382PmZ3XOQ/exec" id="ss-form" method="POST" onsubmit="fadeEffect.init('fade', 1);document.getElementById('fade').style.display = 'block'" target="hidden_iframe">
+            <form  id="ss-form" method="POST" target="hidden_iframe">
 					<div class="styled-input">
                         <div class="styled-input-in">
 								<input type="text" aria-label="Name" name="entry.326151973" value="" id="entry.326151973" dir="auto" title="" required="required">
